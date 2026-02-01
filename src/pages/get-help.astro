@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Get Help Now">
+	<section class="hero" style="min-height: 50vh; background: linear-gradient(135deg, rgba(234, 88, 12, 0.9), rgba(194, 65, 12, 0.8)), url('/assets/images/help-hero.png') no-repeat center center/cover;">
+		<div class="container">
+			<div class="hero-content text-center" style="color: white;">
+				<div style="font-size: 4rem; margin-bottom: 1rem;">🆘</div>
+				<h1 class="hero-title" style="color: white;"><span class="lang-en">You Are Not Alone</span></h1>
+				<p class="hero-subtitle" style="color: white; opacity: 0.95;"><span class="lang-en">Confidential, free support available 24/7</span></p>
+				<div style="margin-top: 2rem;">
+					<a href="tel:+254700000000" class="btn btn-lg" style="background: white; color: var(--urgent-orange); font-size: 1.5rem; padding: 1.5rem 3rem;">
+						📞 Call +254 700 000 000
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section style="padding: 4rem 0;">
+		<div class="container">
+			<div style="max-width: 900px; margin: 0 auto;">
+				<div class="card" style="border: 3px solid var(--urgent-orange);">
+					<div style="display: flex; gap: 1rem; align-items: start; margin-bottom: 2rem;">
+						<svg width="48" height="48" fill="var(--urgent-orange)" viewBox="0 0 24 24">
+							<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+						</svg>
+						<div>
+							<h2 style="font-size: 2rem; margin-bottom: 1rem;"><span class="lang-en">Request Confidential Support</span></h2>
+							<p style="font-size: 1.125rem; color: var(--gray-700);"><span class="lang-en">Your safety and privacy are our priority. This form is secure and confidential. You can also call our 24/7 helpline: <strong>+254 700 000 000</strong></span></p>
+						</div>
+					</div>
+					<div class="card animate-on-scroll delay-200" style="border-top: 5px solid var(--urgent-orange);">
+						<h2 class="section-title">Request Support</h2>
+						<p class="mb-2">Fill out this form to request assistance. This is confidential and secure.</p>
+						
+						<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+							<div class="form-group">
+								<label for="name" class="form-label">Name (Optional)</label>
+								<input type="text" id="name" name="name" class="form-input" placeholder="Leave blank to remain anonymous">
+							</div>
+							<div class="form-group">
+								<label for="contact" class="form-label">Safe Contact Method</label>
+								<input type="text" id="contact" name="contact" class="form-input" placeholder="Phone number or Email" required>
+							</div>
+							<div class="form-group">
+								<label for="location" class="form-label">Location</label>
+								<select id="location" name="location" class="form-select" required>
+									<option value="">Select your region</option>
+									<option value="nairobi">Nairobi</option>
+									<option value="mombasa">Mombasa</option>
+									<option value="kisumu">Kisumu</option>
+									<option value="nakuru">Nakuru</option>
+									<option value="other">Other</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="urgency" class="form-label">Urgency Level</label>
+								<select id="urgency" name="urgency" class="form-select" required>
+									<option value="low">Low - I need information</option>
+									<option value="medium">Medium - I need legal/counseling support soon</option>
+									<option value="high">High - I am in immediate danger</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="details" class="form-label">How can we help?</label>
+								<textarea id="details" name="details" class="form-textarea" placeholder="Tell us as much as you feel safe sharing..." required></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary" style="background: var(--urgent-orange); width: 100%;">Submit Request</button>
+						</form>
+					</div>
+					
+								<svg width="24" height="24" fill="var(--justice-blue)" viewBox="0 0 24 24">
+									<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+								</svg>
+								<p style="margin: 0;"><strong>Privacy Promise:</strong> Your information is encrypted and accessible only to trained counselors. We never share your details without your explicit consent. You control your story.</p>
+							</div>
+						</div>
+						
+						<button type="submit" class="btn btn-lg" style="background: var(--urgent-orange); color: white; width: 100%; margin-top: 2rem;">
+							<svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+								<path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+							</svg>
+							<span class="lang-en">Submit Request - We'll Respond Within 24 Hours</span>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section style="padding: 4rem 0; background: var(--gray-50);">
+		<div class="container">
+			<h2 class="section-title text-center"><span class="lang-en">Crisis Resources</span></h2>
+			<div class="grid grid-3">
+				<div class="card">
+					<h3 style="color: var(--justice-blue);">🏥 Emergency Numbers</h3>
+					<ul style="list-style: none; padding: 0;">
+						<li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">Police: <strong>999</strong></li>
+						<li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">Ambulance: <strong>999</strong></li>
+						<li style="padding: 0.5rem 0;">GBV Hotline: <strong>1195</strong></li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3 style="color: var(--empowerment-purple);">🛡️ Safety Planning</h3>
+					<p>Need help creating a safety plan? Our counselors can guide you through:</p>
+					<ul style="font-size: 0.875rem;">
+						<li>Emergency contacts</li>
+						<li>Safe places to go</li>
+						<li>Document protection</li>
+						<li>Financial safety</li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3 style="color: var(--community-green);">📚 Know Your Rights</h3>
+					<p>Free downloadable guides:</p>
+					<ul style="font-size: 0.875rem;">
+						<li><a href="/resources">GBV Survivors' Rights</a></li>
+						<li><a href="/resources">Land & Inheritance Rights</a></li>
+						<li><a href="/resources">Digital Safety Guide</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
