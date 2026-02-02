@@ -29,37 +29,11 @@ const { title } = Astro.props;
 			<span class="lang-sw hidden">Toka Haraka</span>
 		</button>
 
-		<!-- Emergency Helpline Bar -->
-		<div class="emergency-bar">
-			<div class="container emergency-content">
-				<div class="helpline-info">
-					<svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-						<path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"></path>
-					</svg>
-					<div>
-						<p style="margin: 0; font-size: 0.875rem; opacity: 0.9;">
-							<span class="lang-en">24/7 Emergency Helpline</span>
-							<span class="lang-sw hidden">Simu ya Dharura ya Masaa 24</span>
-						</p>
-						<p class="helpline-number" style="margin: 0;">+254 700 000 000</p>
-					</div>
-				</div>
-
-				<div class="emergency-actions">
-					<a href="/get-help" class="btn-emergency">
-						<span class="lang-en">Get Help Now</span>
-						<span class="lang-sw hidden">Pata Msaada Sasa</span>
-					</a>
-					<button id="lang-toggle" class="btn-lang-toggle">EN / SW</button>
-				</div>
-			</div>
-		</div>
-
 		<!-- Main Navigation -->
 		<nav class="main-nav">
 			<div class="container nav-container">
 				<a href="/" class="logo">
-					🛡️ <span>Tetea Jamii</span>
+					<img src="/assets/images/logo-placeholder.svg" alt="Tetea Jamii Logo" style="height: 48px; width: auto;" />
 				</a>
 
 				<ul class="nav-links">
@@ -87,8 +61,8 @@ const { title } = Astro.props;
 			<div class="container">
 				<div class="footer-grid">
 					<div class="footer-section">
-						<div class="logo" style="color: white; margin-bottom: var(--spacing-md);">
-							🛡️ <span>Tetea Jamii</span>
+						<div class="logo" style="margin-bottom: var(--spacing-md);">
+							<img src="/assets/images/logo-placeholder.svg" alt="Tetea Jamii Logo" style="height: 40px; width: auto; filter: brightness(0) invert(1);" />
 						</div>
 						<p style="color: var(--gray-300);">
 							<span class="lang-en">Protecting communities through comprehensive justice</span>
@@ -120,6 +94,7 @@ const { title } = Astro.props;
 							<li>📞 +254 700 000 000</li>
 							<li>✉️ info@teteajamii.org</li>
 							<li>📍 Nairobi, Kenya</li>
+							<li style="margin-top: 1rem;"><button id="lang-toggle-footer" class="btn-lang-toggle" style="border-color: var(--gray-600); color: var(--gray-300); font-size: 0.875rem; padding: 0.5rem 1rem;">EN / SW</button></li>
 						</ul>
 					</div>
 				</div>

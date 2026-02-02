@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="hero-content text-center animate-on-scroll">
 				<h1 class="hero-title">Building a Kenya Where Justice Protects Everyone</h1>
-				<p class="hero-subtitle">Comprehensive legal aid, digital safety, economic empowerment, and systemic transformation</p>
+				<p class="hero-subtitle mb-4" style="color: white; opacity: 1;">Comprehensive legal aid, digital safety, economic empowerment, and systemic transformation</p>
 				<div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
 					<a href="/get-help" class="btn btn-primary btn-lg">Get Help Now</a>
 					<a href="/get-involved" class="btn btn-secondary btn-lg" style="color: white; border-color: white;">Join Us</a>
@@ -16,41 +16,78 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-	<section class="features" style="background: var(--gray-50);">
-		<div class="container">
-			<div class="section-header">
-				<h2 class="section-title animate-on-scroll">Our Holistic Approach</h2>
-				<p class="section-subtitle animate-on-scroll delay-100">Justice is not just legal—it's economic, social, and digital.</p>
-			</div>
-			
-			<div class="grid grid-3">
-				<div class="card animate-on-scroll delay-100">
-					<div class="card-icon blue">
-						<svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.8L19.3 19H4.7L12 5.8zM11 16h2v2h-2v-2zm0-6h2v4h-2v-4z"/></svg>
-					</div>
-					<h3>Access to Justice</h3>
-					<p>Pro bono legal representation and paralegal support for survivors of gender-based violence and land injustice.</p>
-					<a href="/services#legal" class="btn-link">Learn more &rarr;</a>
-				</div>
-				
-				<div class="card animate-on-scroll delay-200">
-					<div class="card-icon purple">
-						<svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-					</div>
-					<h3>Economic Empowerment</h3>
-					<p>Skills training and seed funding to help survivors build independent, sustainable livelihoods.</p>
-					<a href="/services#economic" class="btn-link">Learn more &rarr;</a>
-				</div>
-				
-				<div class="card animate-on-scroll delay-300">
-					<div class="card-icon green">
-						<svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-					</div>
-					<h3>Digital Safety</h3>
-					<p>Training and rapid response for women facing online harassment and technology-facilitated abuse.</p>
-					<a href="/services#digital" class="btn-link">Learn more &rarr;</a>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- Impact Stats -->
+  <section class="stats-section" style="background: var(--justice-blue); color: white; padding: 3rem 0;">
+    <div class="container">
+      <div class="grid grid-4 text-center">
+        <div class="stat-item animate-on-scroll">
+          <h3 class="stat-number">5,000+</h3>
+          <p>Women Represented</p>
+        </div>
+        <div class="stat-item animate-on-scroll delay-100">
+          <h3 class="stat-number">12,000</h3>
+          <p>Community Members Trained</p>
+        </div>
+        <div class="stat-item animate-on-scroll delay-200">
+          <h3 class="stat-number">85%</h3>
+          <p>Case Win Rate</p>
+        </div>
+        <div class="stat-item animate-on-scroll delay-300">
+          <h3 class="stat-number">47</h3>
+          <p>Counties Reached</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Holistic Approach -->
+  <section id="approach" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our Holistic Approach</h2>
+        <p class="section-subtitle">Justice is not just legal—it's economic, social, and digital.</p>
+      </div>
+      
+      <div class="grid grid-3">
+        <div class="card animate-on-scroll delay-100">
+          <div class="card-icon blue">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3>Access to Justice</h3>
+          <p>Pro bono legal representation and paralegal support for survivors of gender-based violence and land injustice.</p>
+          <a href="/approach/access-to-justice" class="btn-link">Learn more &rarr;</a>
+        </div>
+
+        <div class="card animate-on-scroll delay-200">
+          <div class="card-icon purple">
+           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <h3>Economic Empowerment</h3>
+          <p>Skills training and seed funding to help survivors build independent, sustainable livelihoods.</p>
+          <a href="/approach/economic-empowerment" class="btn-link">Learn more &rarr;</a>
+        </div>
+
+        <div class="card animate-on-scroll delay-300">
+           <div class="card-icon green">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+           </div>
+          <h3>Digital Safety</h3>
+          <p>Training and rapid response for women facing online harassment and technology-facilitated abuse.</p>
+          <a href="/approach/digital-safety" class="btn-link">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--gray-50); padding: 4rem 0; text-center;">
+    <div class="container animate-on-scroll">
+      <h2 class="section-title text-center">Ready to Make an Impact?</h2>
+      <p style="max-width: 600px; margin: 0 auto 2rem;">Join us in building a safer, more just Kenya.</p>
+      <div style="display: flex; justify-content: center; gap: 1rem;">
+        <a href="/get-involved" class="btn btn-primary">Donate Now</a>
+        <a href="/get-involved" class="btn btn-secondary">Volunteer</a>
+      </div>
+    </div>
+  </section>
 </Layout>

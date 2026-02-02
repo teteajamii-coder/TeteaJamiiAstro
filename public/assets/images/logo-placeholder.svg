@@ -1,0 +1,12 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="50" rx="4" fill="transparent"/>
+<path d="M30 10L50 20V35C50 42 42 48 30 50C18 48 10 42 10 35V20L30 10Z" fill="url(#paint0_linear)"/>
+<path d="M30 15L45 22.5V33.75C45 39 39 43.5 30 45C21 43.5 15 39 15 33.75V22.5L30 15Z" stroke="white" stroke-width="2"/>
+<text x="60" y="32" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#1E40AF">Tetea Jamii</text>
+<defs>
+<linearGradient id="paint0_linear" x1="10" y1="10" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+<stop stop-color="#1E40AF"/>
+<stop offset="1" stop-color="#7C3AED"/>
+</linearGradient>
+</defs>
+</svg>
