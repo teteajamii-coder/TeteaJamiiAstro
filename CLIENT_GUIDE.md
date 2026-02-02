@@ -32,10 +32,11 @@ This site is built with **Astro**, which makes it incredibly fast and secure. Th
 3.  **Create Application**:
     *   Go to "Workers & Pages" > "Create Application" > "Pages" > "Connect to Git".
     *   Select your `TeteaJamiiAstro` repository.
-4.  **Configure Build**:
-    *   **Framework Preset**: Select `Astro`.
-    *   **Build Command**: `npm run build` (should be auto-filled).
-    *   **Output Directory**: `dist` (should be auto-filled).
+4.  **Configure Build (CRITICAL STEP)**:
+    *   **Framework Preset**: You **MUST** select `Astro`.
+    *   **Build Command**: `npm run build`
+    *   **Build output directory**: `dist`
+    *   *Note: If you do not see "Build output directory" or if it asks for a "Deploy command", delete the project and start again. You are in "Worker" mode by mistake.*
 5.  **Deploy**: Click "Save and Deploy".
 
 Cloudflare will now build your site and give you a live URL (e.g., `tetea-jamii.pages.dev`). Any time you make changes and push to GitHub, Cloudflare will automatically update your site!

@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Resources">
-	<section class="hero" style="min-height: 50vh;">
+	<section class="hero" style="min-height: 50vh; background: url('/assets/images/resources-hero.png') no-repeat center center/cover;">
 		<div class="container">
-			<div class="hero-content text-center">
+			<div class="hero-content text-center animate-on-scroll">
 				<h1 class="hero-title"><span class="lang-en">Knowledge is Power</span></h1>
 				<p class="hero-subtitle"><span class="lang-en">Free resources to know your rights and protect yourself</span></p>
 			</div>
@@ -154,3 +154,16 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 </Layout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const resourceLinks = document.querySelectorAll('.card ul li a');
+		
+		resourceLinks.forEach(link => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				alert('📄 Demo Mode: In a real website, this would verify the user and download the PDF resource.');
+			});
+		});
+	});
+</script>

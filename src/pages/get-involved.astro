@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Get Involved">
-	<section class="hero">
+	<section class="hero" style="background: url('/assets/images/get-involved-hero.png') no-repeat center center/cover;">
 		<div class="container">
-			<div class="hero-content text-center">
+			<div class="hero-content text-center animate-on-scroll">
 				<h1 class="hero-title"><span class="lang-en">Join the Movement for Justice</span></h1>
 				<p class="hero-subtitle"><span class="lang-en">Every contribution creates change. Every voice amplifies justice.</span></p>
 			</div>
@@ -15,23 +15,23 @@ import Layout from '../layouts/Layout.astro';
 	<!-- Donate Section -->
 	<section id="donate" style="padding: 4rem 0;">
 		<div class="container">
-			<h2 class="section-title text-center">💰 <span class="lang-en">Donate to Fund Justice</span></h2>
+			<h2 class="section-title text-center animate-on-scroll">💰 <span class="lang-en">Donate to Fund Justice</span></h2>
 			<div class="grid grid-3" style="gap: 2rem; max-width: 1000px; margin: 0 auto;">
-				<div class="card text-center" style="border: 2px solid var(--justice-blue);">
+				<div class="card text-center animate-on-scroll delay-100" style="border: 2px solid var(--justice-blue);">
 					<h3 style="color: var(--justice-blue);">KSh 5,000</h3>
 					<p style="font-size: 0.875rem; margin: 1rem 0;">Provides legal consultation for 1 survivor</p>
-					<button class="btn btn-primary" style="width: 100%;">Donate Now</button>
+					<button class="btn btn-primary donate-trigger" style="width: 100%;">Donate Now</button>
 				</div>
-				<div class="card text-center" style="border: 3px solid var(--empowerment-purple); transform: scale(1.05);">
+				<div class="card text-center animate-on-scroll delay-200" style="border: 3px solid var(--empowerment-purple); transform: scale(1.05);">
 					<div style="background: var(--empowerment-purple); color: white; padding: 0.5rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">Most Popular</div>
 					<h3 style="color: var(--empowerment-purple);">KSh 15,000</h3>
 					<p style="font-size: 0.875rem; margin: 1rem 0;">Funds full legal representation for 1 case</p>
-					<button class="btn btn-purple" style="width: 100%;">Donate Now</button>
+					<button class="btn btn-purple donate-trigger" style="width: 100%;">Donate Now</button>
 				</div>
-				<div class="card text-center" style="border: 2px solid var(--community-green);">
+				<div class="card text-center animate-on-scroll delay-300" style="border: 2px solid var(--community-green);">
 					<h3 style="color: var(--community-green);">KSh 50,000</h3>
 					<p style="font-size: 0.875rem; margin: 1rem 0;">Sponsors 10 women in skills training program</p>
-					<button class="btn btn-green" style="width: 100%;">Donate Now</button>
+					<button class="btn btn-green donate-trigger" style="width: 100%;">Donate Now</button>
 				</div>
 			</div>
 			
@@ -65,13 +65,23 @@ import Layout from '../layouts/Layout.astro';
 					<script>
 						document.addEventListener('DOMContentLoaded', () => {
 							const mpesaBtn = document.getElementById('mpesa-btn');
+							const donateTriggers = document.querySelectorAll('.donate-trigger'); // Select all donate buttons
 							const modal = document.getElementById('mpesa-modal');
 							const closeBtn = modal?.querySelector('.modal-close');
 
-							if (mpesaBtn && modal && closeBtn) {
-								mpesaBtn.addEventListener('click', () => {
+							if (modal && closeBtn) {
+								// Open modal for main M-Pesa button
+								mpesaBtn?.addEventListener('click', () => {
 									modal.style.display = 'flex';
 								});
+
+								// Open modal for all "Donate Now" pricing buttons
+								donateTriggers.forEach(btn => {
+									btn.addEventListener('click', () => {
+										modal.style.display = 'flex';
+									});
+								});
+
 								closeBtn.addEventListener('click', () => {
 									modal.style.display = 'none';
 								});
