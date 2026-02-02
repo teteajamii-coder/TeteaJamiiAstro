@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Contact Us">
-	<section class="hero">
+	<section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/images/contact-hero.png') no-repeat center center/cover;">
 		<div class="container">
 			<div class="hero-content text-center animate-on-scroll">
 				<h1 class="hero-title"><span class="lang-en">Get in Touch</span></h1>
@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
 				<!-- Contact Form -->
 				<div>
 					<h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Send Us a Message</h2>
-					<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form card animate-on-scroll delay-200">
+					<form id="contactForm" class="contact-form card animate-on-scroll delay-200">
 						<h3 class="mb-2">Send us a Message</h3>
 						<div class="form-group">
 							<label for="name" class="form-label">Name</label>
@@ -39,6 +39,20 @@ import Layout from '../layouts/Layout.astro';
 						<button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
 						<p style="font-size: 0.8rem; color: var(--gray-600); margin-top: 1rem;">* We respect your privacy. All communications are confidential.</p>
 					</form>
+					<script>
+						document.getElementById('contactForm').addEventListener('submit', (e) => {
+							e.preventDefault();
+							// Simulate sending
+							const btn = e.target.querySelector('button');
+							const originalText = btn.textContent;
+							btn.textContent = 'Sending...';
+							btn.disabled = true;
+							
+							setTimeout(() => {
+								window.location.href = '/thank-you';
+							}, 1500);
+						});
+					</script>
 				</div>
 				
 				<!-- Contact Info -->

@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Thank You - Tetea Jamii">
+  <main class="thank-you-page">
+    <div class="container text-center">
+      <div class="success-icon animate-pop">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      
+      <h1 class="animate-fade-up">Asante Sana!</h1>
+      <p class="subtitle animate-fade-up delay-100">Thank you for reaching out to Tetea Jamii.</p>
+      
+      <div class="message-card animate-fade-up delay-200">
+        <p>We have received your submission and our team is reviewing it.</p>
+        <p>You can expect to hear from us within <strong>24-48 hours</strong>.</p>
+      </div>
+
+      <div class="actions animate-fade-up delay-300">
+        <a href="/" class="btn-primary">Return Home</a>
+        <a href="/resources" class="btn-outline">Explore Resources</a>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .thank-you-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+    padding-top: 80px; /* Accounts for floating nav */
+  }
+
+  .success-icon {
+    color: var(--community-green);
+    margin-bottom: 2rem;
+    display: inline-flex;
+    padding: 2rem;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    color: var(--justice-blue);
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: var(--gray-600);
+    margin-bottom: 3rem;
+  }
+
+  .message-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .message-card p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    color: var(--gray-700);
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--justice-blue);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--justice-blue);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--justice-blue);
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover, .btn-outline:hover {
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline:hover {
+    background: rgba(37, 99, 235, 0.05);
+  }
+
+  /* Animations */
+  .animate-pop {
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+  
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+
+  @keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  import confetti from 'canvas-confetti';
+
+  // Trigger confetti on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const duration = 3000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#2563EB', '#7C3AED', '#10B981']
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ['#2563EB', '#7C3AED', '#10B981']
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  });
+</script>
