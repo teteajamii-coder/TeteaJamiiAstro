@@ -196,14 +196,22 @@ const forms = {
 };
 
 // ========================================
-// SCROLL ANIMATIONS
+// SCROLL ANIMATIONS & COUNTERS (Optimized)
 // ========================================
-const scrollAnimations = {
+const scrollEffects = {
     init() {
-        const observer = new IntersectionObserver((entries) => {
+        const animationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeInUp');
+                    if (entry.target.classList.contains('stat-number')) {
+                        if (!entry.target.classList.contains('counted')) {
+                            this.animateCounter(entry.target);
+                            entry.target.classList.add('counted');
+                        }
+                    } else {
+                        entry.target.classList.add('is-visible', 'animate-fadeInUp');
+                    }
+                    animationObserver.unobserve(entry.target);
                 }
             });
         }, {
@@ -211,58 +219,44 @@ const scrollAnimations = {
             rootMargin: '0px 0px -50px 0px'
         });
 
-        // Observe elements with animation classes
-        document.querySelectorAll('.card, .grid > *, .hero-content > *').forEach(el => {
-            observer.observe(el);
+        // Combined observation for cards, grid items, and counters
+        document.querySelectorAll('.card, .grid > *, .hero-content > *, .stat-number, .animate-on-scroll').forEach(el => {
+            animationObserver.observe(el);
         });
-    }
-};
-
-// ========================================
-// STATISTICS COUNTER ANIMATION
-// ========================================
-const counters = {
-    init() {
-        const counterElements = document.querySelectorAll('.stat-number');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                    this.animateCounter(entry.target);
-                    entry.target.classList.add('counted');
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counterElements.forEach(el => observer.observe(el));
     },
 
     animateCounter(element) {
-        const rawTarget = element.getAttribute('data-count');
+        const rawTarget = element.getAttribute('data-count') || element.getAttribute('data-target');
         if (!rawTarget) return;
 
-        // Handle "5,000+" -> 5000
-        const target = parseInt(rawTarget.replace(/,/g, '').replace('+', ''));
-        const originalText = rawTarget; // Keep original formatting for final display if needed
+        const target = parseInt(rawTarget.replace(/,/g, '').replace('+', '').replace('%', ''));
+        const suffix = rawTarget.includes('%') ? '%' : (rawTarget.includes('+') ? '+' : '');
 
         const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
+        const startTime = performance.now();
 
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                element.textContent = Math.floor(current).toLocaleString();
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Ease out cubic
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(easeProgress * target);
+
+            element.textContent = current.toLocaleString() + suffix;
+
+            if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
-                // Restore original string (e.g., "5,000+") or just number with commas
-                element.textContent = isNaN(target) ? rawTarget : target.toLocaleString() + (rawTarget.includes('+') ? '+' : '');
+                element.textContent = rawTarget;
             }
         };
 
-        updateCounter();
+        requestAnimationFrame(updateCounter);
     }
 };
+
+
 
 // ========================================
 // QUICK EXIT FUNCTIONALITY
@@ -401,8 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navigation.init();
     smoothScroll.init();
     forms.init();
-    scrollAnimations.init();
-    counters.init();
+    scrollEffects.init();
     quickExit.init();
     modals.init();
     lazyLoad.init();
